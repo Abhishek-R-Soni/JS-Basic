@@ -53,20 +53,20 @@ let book = {
     
     set bookName(name){
         this.name = name
+    },
+
+    set bookPage(page) {
+        this.page = page
+    },
+
+    set bookAmount(amount) {
+        this.amount = amount
     }
-
-    // set bookPage(page) {
-    //     this.page = page
-    // },
-
-    // set bookAmount(amount) {
-    //     this.amount = amount
-    // }
 }
 
 book.bookName = 'Java'
 console.log(book.bookName)
 console.log(book.bookPage)
 console.log(book.bookAmount)
-// book.bookAmount = 799
-// console.log(book.bookAmount)
+book.bookAmount = 799
+console.log(book.bookAmount)
