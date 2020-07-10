@@ -1,5 +1,5 @@
 // create todo app
-
+{
 // let todos = [
 //     {
 //         title: 'Python',
@@ -51,47 +51,36 @@
 //         p.textContent = todo.title + ' : ' + todo.desc
 //     document.querySelector('div').appendChild(p)
 // })
-
+}
 // print on click
-function createNote() {
     document.querySelector('#create').addEventListener('click', function (e) {
-        console.log('click me')
-        todos = []
+        console.log('Object Created!')
+        let todos = []
         localStorage.setItem('todos', JSON.stringify(todos))
     })    
-}
 
 // add todo on click
-function addNotes() {
     let txt = ""
     document.querySelector('#txt').addEventListener('change', function (e) {
         txt = e.target.value
-        console.log(txt)
-
     })
-    let add = addNote(txt)
+    let add = addTodo(txt)
     // document.querySelector('#txt').innerHTML = ""
-}
 
 // display all elements
-function showNote() {
-    let dis = displayNotes()    
-}
+    displayTodos()    
 
 // debugger
 // console.log('debugger')
 
 // search notes 
-function searchNote() {
-    let todos = searchNote()
-}
+    searchTodo()
 
 // clear all elements
-function clearNote() {
-    let clear = clearNote()    
-}
+    clearTodo()    
 
-// // working with form
+{
+    // // working with form
 // document.querySelector('#form').addEventListener('submit', function (e) {
 //     e.preventDefault()
 //     console.log(e.target.elements.name.value)
@@ -123,3 +112,5 @@ function clearNote() {
 // let persons = localStorage.getItem('person')
 // user = JSON.parse(persons)
 // // console.log(`title ${user.name}`)
+
+}

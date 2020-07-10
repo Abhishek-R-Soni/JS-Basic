@@ -1,4 +1,4 @@
-function searchNote() {
+function searchTodo() {
     document.querySelector('#search').addEventListener('change', function (e) {
         let todos = JSON.parse(localStorage.getItem('todos'))
         document.querySelector('#srh').innerHTML = ""
@@ -13,14 +13,14 @@ function searchNote() {
     })
 }
 
-function clearNote() {
+function clearTodo() {
     document.querySelector('#remove').addEventListener('click', function () {
         document.querySelector('#srh').innerHTML = ""
     })
 }
 
-function displayNotes() {
-    document.getElementById('show').addEventListener('click', function () {
+function displayTodos() {
+    document.querySelector('#show').addEventListener('click', function () {
         let todos = JSON.parse(localStorage.getItem('todos'))
         document.querySelector('#srh').innerHTML = ""
 
@@ -38,19 +38,19 @@ function displayNotes() {
             div.appendChild(sp)
             div.appendChild(btn)
 
-            cb.addEventListener('input', function () {
+            cb.addEventListener('input', () => {
                 makeComplete(todo.id)
             })
 
-            btn.addEventListener('click', function () {                
-                removeNote(todo.id)
+            btn.addEventListener('click', () => {                
+                removeTodo(todo.id)
             })
             document.querySelector('#srh').appendChild(div)
         })
     })
 }
 
-function removeNote(fid) {
+function removeTodo(fid) {
     let todos = JSON.parse(localStorage.getItem('todos'))
 
     let todo = todos.find(function (todo) {
@@ -75,9 +75,9 @@ function makeComplete(fid) {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
 
-function addNote() {
+function addTodo() {
 
-    document.getElementById('add').addEventListener('click', function (e) {
+    document.querySelector('#add').addEventListener('click', function (e) {
         let todo = JSON.parse(localStorage.getItem('todos'))
         todo.push({
             id: uuidv4(), 
@@ -92,7 +92,7 @@ function addNote() {
 
         todos.forEach(function (todo) {
             let p = document.createElement('p')
-            p.textContent = todo.title + ' : ' + todo.desc
+            p.textContent = todo.title + ' : ' + todo.completed
             document.querySelector('#srh').appendChild(p)
         })
     })
